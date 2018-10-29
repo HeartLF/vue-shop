@@ -16,7 +16,7 @@
         </mt-swipe>
        </div>
       <div class="middle">
-          <div class="middle_content" @click="game">
+          <div class="middle_content">
             <img src="../assets/账号.png" alt="">
             <p>游戏账号</p>
           </div>
@@ -48,15 +48,10 @@ export default {
     name:'Middle',
       data () {
     return {
-        msg: 'Welcome to Your Vue.js App',
-        result:[],
-        title:'',
-        value:''
-    }
-  },
-  methods:{
-    game:function(){
-      this.$router.push({name:'Game'})
+      msg: 'Welcome to Your Vue.js App',
+      result:[],
+      title:'',
+      value:''
     }
   }
 }

@@ -9,11 +9,10 @@
           <mt-tab-item id="add" class="add">
             <img slot="icon" src="../assets/添加.png">
             <router-link :to='{name:"Add"}'><p>发布</p></router-link>
-          </mt-tab-item>
-          
+          </mt-tab-item>          
           <mt-tab-item id="four">
             <img slot="icon" src="../assets/我的 (2).png"/>
-            <router-link to='{name:"myHome"}'> <p> 我的</p></router-link>     
+            <router-link :to='{name:"My"}'> <p> 我的</p></router-link>     
           </mt-tab-item>
         </mt-tabbar>
       </div>

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="bottom-bar">
+      <div class="bottom-bar" >
         <mt-tabbar v-model="selected">
           <mt-tab-item id="one">
             <img slot="icon" src="../assets/首页.png">
@@ -45,6 +45,9 @@ a{
   display: block;
   width: 50px;
   height: 50px; 
+}
+.bottom-bar{
+  position: flex;
 }
 /*
 .add img{

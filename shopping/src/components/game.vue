@@ -1,22 +1,24 @@
 <template>
      <div>
-         <div class="back">
-             <img src="../assets/返回.png" slot="icon">
+         <div class="fix">
+            <div class="back" @click="back">
+                <img src="../assets/返回.png" slot="icon">
+            </div>
+            <div class="search">
+                    <mt-search
+                    v-model="value"
+                    cancel-text="取消"
+                    placeholder="搜索">
+                    </mt-search>
+            </div>
          </div>
-        <div class="search">
-                <mt-search
-                v-model="value"
-                cancel-text="取消"
-                placeholder="搜索">
-                </mt-search>
-        </div>
         <div></div>
         <div class="content_top">
                
             <ul class="sort" >
                 <li>
                     <span>综合排序</span>
-                    <img src="../assets/向下.png" alt="" class="down" @click="down">
+                    <img src="../assets/向下.png"   @click="down" :class="[rotate?'down go':'down aa']">
                  <ul class="paixu" v-if="list">
                         <li>
                             价格从低到高排序
@@ -28,7 +30,7 @@
                 </li>
                 <li>
                     <span>区域</span>
-                    <img src="../assets/向下.png" alt="" class="down" @click="down2">
+                    <img src="../assets/向下.png"  @click="down2" :class="[rotate2?'down go':'down aa']">
                    <ul class="paixu" v-if="list2">
                         <li>
                             东区
@@ -42,9 +44,10 @@
         </div>
         <div class="content" :style="opacity">
             <ul   v-infinite-scroll="loadMore"
-  infinite-scroll-disabled="loading"
-  infinite-scroll-distance="10" class="sort">
-                <li class="content_main">
+                    infinite-scroll-disabled="loading"
+                    infinite-scroll-distance="10" class="sort">
+    <router-link :to="{name:'Product',params:{id:123}}">
+                <li class="content_main" >
                     <div class="content_img"><img src="../assets/v2_pgqwc7.jpg" alt=""></div>
                     <div class="content_info">
                         <p class="name">维金斯篮球鞋</p>
@@ -58,6 +61,7 @@
                          </div>
                     </div>
                 </li>
+                </router-link>
                  <li class="content_main">
                     <div class="content_img"><img src="../assets/v2_pgqwc7.jpg" alt=""></div>
                     <div class="content_info">
@@ -123,44 +127,64 @@ export default {
     name:'Game',
      data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      result:[],
-      title:'',
-      value:'',
-      list:false,
-      list2:false,
-      opacity:{
-          opacity:1
-      }
-    }
-  },
+            msg: 'Welcome to Your Vue.js App',
+            result:[],
+            title:'',
+            value:'',
+            list3:[],
+            list:false,
+            list2:false,
+            opacity:{
+                opacity:1
+            },
+            rotate:false,
+            rotate2:false
+        }
+    },
   methods:{
-      loadMore() {
-  this.loading = true;
-  setTimeout(() => {
-    let last = this.list[this.list.length - 1];
-    for (let i = 1; i <= 10; i++) {
-      this.list.push(last + i);
-    }
-    this.loading = false;
-  }, 2500);
-},
-      down:function(){
-          this.list=!this.list;
-          this.opacity.opacity=0.3;
-      },
-       down2:function(){
-          this.list2=!this.list2;
-          this.opacity.opacity=0.3;
-      }
+            loadMore:function() {
+                this.loading = true;
+                setTimeout(() => {
+                    let last = this.list[this.list.length - 1];
+                    for (let i = 1; i <= 10; i++) {
+                    this.list3.push(last + i);
+                    }
+                    this.loading = false;
+                }, 2500);
+            },
+            down:function(){
+                this.list=!this.list;
+                this.rotate=!this.rotate;
+                if(this.opacity.opacity==1){
+                    this.opacity.opacity=0.3;
+                }else{
+                    this.opacity.opacity=1;
+                }
+                
+                console.log(this.opacity)
+            },
+            down2:function(){
+                this.list2=!this.list2;
+                this.rotate2=!this.rotate2;
+                if(this.opacity.opacity==1){
+                    this.opacity.opacity=0.3;
+                }else{
+                    this.opacity.opacity=1;
+                }
+            },
+            back:function(){
+                this.$router.go(-1)
+            }
   }
 }
 </script>
 <style scoped>
+.fix{
+    position: flex;
+}
     .back{
         border: none;
         float: left;
-        position: flex;
     }
     .back img{
         display: block;
@@ -174,6 +198,8 @@ export default {
  }
  .content_top{
      border-bottom: 1px solid black;
+     margin-top: 10px;
+     padding-bottom: 10px;
  }
  .sort{
      padding: 0px;
@@ -220,6 +246,11 @@ export default {
      height: 24px;
      visibility: middle;
     position: absolute;
+    transform-origin:center center;
+    
+ }
+ .content{
+     margin-top: 20px;
  }
  .content_main{
      width: 330px;
@@ -288,6 +319,13 @@ export default {
      color: rgba(234, 48, 48, 0.8);
      float: left;
 }
+ .aa{
+        transition: all 1s;
+    }
+    .go{
+        transform:rotate(-180deg);
+        transition: all 1s;
+    }
 </style>
 
 

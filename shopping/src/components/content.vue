@@ -9,11 +9,11 @@
           </mt-search>
       </div>
       <div>
-       <mt-swipe :show-indicators="false" class="swipe" :auto="0"> 
-                <mt-swipe-item><img src="../assets/v2_pgqhqd.png" alt="" class="lunbotu"><span class="book">二手书</span></mt-swipe-item>
-                <mt-swipe-item><img src="../assets/v2_pgqhqd.png" alt=""><span class="book">二手书</span></mt-swipe-item>
-                <mt-swipe-item><img src="../assets/v2_pgqhqd.png" alt=""><span class="book">二手书</span></mt-swipe-item>
-          </mt-swipe>
+        <mt-swipe :show-indicators="false" class="swipe" :auto="2000"> 
+            <mt-swipe-item><img src="../assets/v2_pgqhqd.png" alt=""><span class="book">二手书</span></mt-swipe-item>
+            <mt-swipe-item><img src="../assets/v2_pgqhqd.png" alt=""><span class="book">二手书</span></mt-swipe-item>
+            <mt-swipe-item><img src="../assets/v2_pgqhqd.png" alt=""><span class="book">二手书</span></mt-swipe-item>
+        </mt-swipe>
        </div>
       <div class="middle">
           <div class="middle_content" @click="game">
@@ -45,19 +45,19 @@
 </template>
 <script>
 export default {
-    name:'Middle',
+    name:'Content',
       data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      result:[],
-      title:'',
-      value:''
+        msg: 'Welcome to Your Vue.js App',
+        result:[],
+        title:'',
+        value:''
     }
   },
   methods:{
-    game:function () {
-        this.$router.push('/game');
-      }
+    game:function(){
+      this.$router.push({name:'Game'})
+    }
   }
 }
 </script>
@@ -80,13 +80,10 @@ a {
   color: #42b983;
 }
  img {
-   display: block;
-    width: 100%;
-    height: 90%;
-    width: 100vw;
+ width: 100%;
  }
  .mint-swipe {
-      height: 300px;
+ height: 218px;
  }
  .cl{
    clear: both;
@@ -94,12 +91,12 @@ a {
  .mint-search{
     height: 100%;
  }
- /* .swipe{
+ .swipe{
    width: 305px;
    height: 100px;
   margin-left: 18px;
    margin-top: 50px;
- } */
+ }
  .book{
    position: absolute;
    left: 50%;
@@ -107,31 +104,28 @@ a {
    transform: translate(-50%,-50%);
  }
 .middle{
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
-   flex-wrap: wrap;
-   margin-bottom: 70px;
+   flex-wrap: wrap
 }
 .middle_content{
   width: 33%;
   height: 33%;
 }
 .middle_content img{
-  margin-left: 10px;
   width: 80px;
   height: 80px;
-      
 }
 .middle_content p{
-    font-family: SourceHanSansSC;
+      font-family: SourceHanSansSC;
     font-weight: 400;
     font-size: 14px;
     color: rgb(16, 16, 16);
     font-style: normal;
     letter-spacing: 0px;
     line-height: 21px;
-    text-decoration: none;
-    text-align: center;
+    text-decoration: none
 }
 </style>
+
 

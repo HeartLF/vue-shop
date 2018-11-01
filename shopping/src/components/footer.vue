@@ -4,7 +4,7 @@
         <mt-tabbar v-model="selected">
           <mt-tab-item id="one">
             <img slot="icon" src="../assets/首页.png">
-            <router-link :to='{name:"HelloWorld"}' ><p>首页</p> </router-link> 
+            <router-link :to='{name:"Middle"}' ><p>首页</p> </router-link> 
           </mt-tab-item>
           <mt-tab-item id="add" class="add">
             <img slot="icon" src="../assets/添加.png">
@@ -46,8 +46,11 @@ a{
   width: 50px;
   height: 50px; 
 }
-.bottom-bar{
-  position: flex;
+
+.mint-tabbar{
+  
+  position: fixed;
+  
 }
 /*
 .add img{

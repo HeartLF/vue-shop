@@ -90,34 +90,7 @@
                          </div>
                     </div>
                 </li>
-                 <li class="content_main">
-                    <div class="content_img"><img src="../assets/v2_pgqwc7.jpg" alt=""></div>
-                    <div class="content_info">
-                        <p class="name">维金斯篮球鞋</p>
-                        <span class="price">￥600</span>
-                        <div class="content_bottom">
-                        <p class="location">东区</p>
-                        <p class="counter">
-                            <span class="num">235</span>
-                            <span>个人浏览</span>
-                        </p>
-                         </div>
-                    </div>
-                </li>
-                 <li class="content_main">
-                    <div class="content_img"><img src="../assets/v2_pgqwc7.jpg" alt=""></div>
-                    <div class="content_info">
-                        <p class="name">维金斯篮球鞋</p>
-                        <span class="price">￥600</span>
-                        <div class="content_bottom">
-                        <p class="location">东区</p>
-                        <p class="counter">
-                            <span class="num">235</span>
-                            <span>个人浏览</span>
-                        </p>
-                         </div>
-                    </div>
-                </li>
+                
             </ul>
         </div>
     </div>
@@ -253,7 +226,7 @@ export default {
      margin-top: 20px;
  }
  .content_main{
-     width: 330px;
+     width:100%;
      height: 101px;
      margin-top: 10px;
  }
@@ -262,12 +235,12 @@ export default {
  }
  .content_img img{
      display: block;
-     width: 170px;
+     width: 160px;
      height: 100px;
  }
  .content_info{
      text-align: left;
-     float: left;
+    float: left;
      margin-left: 10px;
  }
  .name{

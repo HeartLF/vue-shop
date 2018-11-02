@@ -48,9 +48,7 @@ a{
 }
 
 .mint-tabbar{
-  
-  position: fixed;
-  
+  position: fixed; 
 }
 /*
 .add img{

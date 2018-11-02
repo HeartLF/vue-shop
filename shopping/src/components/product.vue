@@ -28,7 +28,6 @@
       <div class="bottom">
 <mt-button size="large" type="primary">联系卖家</mt-button>
       </div>
-      
 
     </div>
 </template>

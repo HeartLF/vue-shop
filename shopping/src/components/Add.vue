@@ -59,8 +59,9 @@ export default {
 </script>
 <style scoped>
 .main{
-    background: #f0f0f2;
-
+    /* background: #f0f0f2; */
+    height: 100%;
+    
 }
     .box{
         width: 100px;
@@ -98,7 +99,7 @@ export default {
     .content span{
         line-height: 30px;
         font-family: SourceHanSansSC;
-        font-weight: 400;
+      font-weight: 400;
     }
     .content select{
        width: 200px;
@@ -122,6 +123,7 @@ export default {
 .bottom button{
     position: relative;
     top: -60px;
+    background: #FE5555
 }
 </style>
 

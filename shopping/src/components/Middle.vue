@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div>
-          <mt-search v-model="value">
-            <mt-cell v-for="item in result" :key="item.id"
+        <div class="search">
+          <mt-search v-model="value" >
+            <mt-cell  class="search" v-for="item in result" :key="item.id"
               :title="item.title"
-              :value="item.value">
+              :value="item.value" >
             </mt-cell>
           </mt-search>
       </div>
@@ -91,9 +91,13 @@ a {
  .cl{
    clear: both;
  }
+ .search{
+    background: #FE5555;
+ }
  .mint-search{
     height: 100%;
  }
+
  /* .swipe{
    width: 305px;
    height: 100px;

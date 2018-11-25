@@ -1,12 +1,14 @@
 <template>
     <div>
         <div class="search">
-          <mt-search v-model="value" >
-            <mt-cell  class="search" v-for="item in result" :key="item.id"
-              :title="item.title"
-              :value="item.value" >
-            </mt-cell>
-          </mt-search>
+         <mt-search v-model="value">
+          <mt-cell
+            v-for="item in result"
+            :key="item.id"
+            :title="item.title"
+            :value="item.value">
+          </mt-cell>
+      </mt-search>
       </div>
       <div>
        <mt-swipe :show-indicators="false" class="swipe" :auto="0"> 
@@ -16,15 +18,20 @@
           </mt-swipe>
        </div>
       <div class="middle">
-          <div class="middle_content" @click="game">
-            <img src="../assets/账号.png" alt="">
-            <p>游戏账号</p>
+
+        <div class="middle_content" v-for="item in info" :key=item.id @click="goto(item.id,item.name)">
+            <img :src="item.img" >
+            <p>{{item.name}}</p>
+        </div>
+
+          <!-- <div class="middle_content" @click="acount">
+           
           </div>
-          <div class="middle_content">
+          <div class="middle_content" @click="game">
             <img src="../assets/出行.png" alt="">
             <p>出行工具</p>
           </div>
-          <div class="middle_content">
+          <div class="middle_content" @click="phone">
             <img src="../assets/数码.png" alt="">
             <p>3C数码</p>
           </div>
@@ -39,7 +46,7 @@
            <div class="middle_content">
             <img src="../assets/衣物.png" alt="">
             <p>衣物鞋子</p>
-          </div>
+          </div> -->
       </div>
     </div>
 </template>
@@ -49,14 +56,49 @@ export default {
       data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      result:[],
+      result:["w","hw","hhw"],
       title:'',
-      value:''
+      value:'',
+      info:[{
+        img:require('../assets/账号.png'),
+        name:'游戏账号',
+        id:1
+      },{
+        img:require('../assets/出行.png'),
+        name:'出行工具',
+        id:2
+      },{
+        img:require('../assets/数码.png'),
+        name:'3C数码',
+        id:3
+      },{
+        img:require('../assets/宿舍用品.png'),
+        name:'宿舍用品',
+        id:3
+      },{
+        img:require('../assets/美妆.png'),
+        name:'美妆护肤',
+        id:4
+      },{
+        img:require('../assets/衣物.png'),
+        name:'衣物鞋',
+        id:4
+      }]
     }
   },
   methods:{
     game:function () {
         this.$router.push('/game');
+      },
+      acount:function(){
+        this.$router.push('/acount')
+      },
+      phone(){
+        this.$router.push('/phone');
+      },
+      goto(id,name){
+        this.$store.dispatch('changeName',name);
+        this.$router.push('/acount/'+id)
       }
   }
 }
@@ -82,11 +124,12 @@ a {
  img {
    display: block;
     width: 100%;
-    height: 90%;
-    width: 100vw;
+    height: 60%;
+    /* width: 100vw; */
  }
  .mint-swipe {
-      height: 300px;
+      height: 16rem;
+      margin-top: 2rem;
  }
  .cl{
    clear: both;
@@ -114,7 +157,9 @@ a {
   margin-top: 30px;
   display: flex;
    flex-wrap: wrap;
-   margin-bottom: 70px;
+   margin-bottom: 4rem;
+   position: relative;
+   top: -4rem;
 }
 .middle_content{
   width: 33%;
@@ -136,6 +181,9 @@ a {
     line-height: 21px;
     text-decoration: none;
     text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: -1rem;
 }
 </style>
 

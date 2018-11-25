@@ -10,12 +10,14 @@ import MintUi from 'mint-ui';
 //引入样式
 import 'mint-ui/lib/style.css';
 
+import store from './store/store';
 //安装插件
 Vue.use(MintUi);
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     template: '<App/>'
 })

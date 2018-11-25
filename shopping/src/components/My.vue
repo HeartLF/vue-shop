@@ -7,54 +7,67 @@
                 <p>用沉默在咆哮</p>
                  </div>
             </div>
-            <div class="middle">
+            <div class="bottom">
                 <ul>
-                    <li>
+                       <li @click="goto">
                         <img src="../assets/发布.png" alt="">
-                        <p>我发布的</p>
+                        <span>我发布的</span>
                     </li>
                     <li>
                         <img src="../assets/卖出记录.png" alt="">
-                        <p>我卖出的</p>
+                        <span>我卖出的</span>
                     </li>
                     <li>
                         <img src="../assets/已买到商品.png" alt="">
-                        <p>我买到的</p>
+                        <span>我买到的</span>
                     </li>
                     <li>
                         <img src="../assets/喜欢添加.png" alt="">
-                        <p>我想要的</p>
+                        <span>我想要的</span>
                     </li>
-                </ul>
-            </div>
-            <div class="bottom">
-                <ul>
                     <li>
                         <img src="../assets/红包.png" alt="">
                         <span>我的红包</span>
                     </li>
+                    <router-link :to="{name:'Address'}">
                     <li>
                         <img src="../assets/地址.png" alt="">
                         <span>地址管理</span>
                     </li>
+                    </router-link>
                     <li>
                         <img src="../assets/关于.png" alt="">
                         <span>关于</span>
                     </li>
+                    <li>
+                        <button  class="btn">退出</button>
+                    </li>
                 </ul>
+                 
             </div>
-             <div class="Bottom">
-<mt-button size="large" type="primary">退出</mt-button>
-      </div>
+          
 
     </div>
 </template>
 <script>
 export default {
-    name:'My'
+    name:'My',
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        goto(){
+            this.$router.push('/rent')
+        }
+    }
 }
 </script>
 <style scoped>
+a{
+    text-decoration: none;
+}
     .top{
         width: 100%;
         height: 220px;
@@ -100,6 +113,7 @@ export default {
     }
     .bottom{
         margin-top: 50px;
+        height: 300px;
     }
     .bottom ul li{
         list-style: none;
@@ -119,8 +133,16 @@ export default {
         padding-left: 10px;
         opacity: 0.6;
     }
-    .Bottom button{
-        background: #FE5555;
-    }
+  .bottom ul li:nth-of-type(8){
+      margin-left: 0px;
+      margin-bottom: 4rem;
+  }
+   .btn{
+       width: 100%;
+       background: #FE5555;
+       color: #fff;
+       border: none;
+       height: 3rem;
+   }
 </style>
 

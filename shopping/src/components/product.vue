@@ -6,12 +6,15 @@
                 <mt-swipe-item><img src="../assets/v2_pgqwc7.jpg" alt=""><span class="book">二手书</span></mt-swipe-item>
                 <mt-swipe-item><img src="../assets/v2_pgqwc7.jpg" alt=""><span class="book">二手书</span></mt-swipe-item>
             </mt-swipe>
+            <div class="top">
                 <div class="back" @click="back">
                     <img src="../assets/返回.png" slot="icon">
                 </div>
                 <div class="home_page" @click="back_home">
                     <img src="../assets/首页.png" slot="icon">
                 </div>
+            </div>
+           
         </div>
        <div class="content">
            <div class="content_top">
@@ -25,10 +28,11 @@
                自用篮球战靴，42码，18年10月从虎扑购入，正品保证。原价1499。但是码子不适合我。需要联系
            </div>
        </div>
+       <div></div>
       <div class="bottom">
-<mt-button size="large" type="primary">联系卖家</mt-button>
+        <mt-button size="large" type="primary">联系卖家</mt-button>
       </div>
-
+   
     </div>
 </template>
 <script>
@@ -45,41 +49,42 @@ export default {
 }
 </script>
 <style scoped>
-
+    .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
     .back{
         border: none;      
              
     }
     .back img{
         display: block;
-        width: 30px;
-        height: 30px;
-        margin-top: 10px;
-         position: absolute;  
-         left: 0px;
-         top: 0px;
+        width: 2rem;
+        height: 1.5rem;
+        margin-top: .8rem;
+        position: absolute;  
+        left: 0;
+        top: 0;
         
     }
     .home_page img{
         display: block;
-        width: 30px;
-        height: 30px;
-        margin-top: 10px;
+        width: 2rem;
+        height: 1.7rem;
+        margin-top: .8rem;
          position: absolute;  
-         right: 10px;
-         top: 0px;
+         right: .8rem;
+         top: 0;
     }
-/* .mint-swipe-items-wrap{
-    height: 150%;
-} */
  img {
      display: block;
     width: 100%;
     height: 100%;
-   width: 100vw;
  }
  .mint-swipe {
-      height: 300px;
+      height: 19rem;
  }
  .book{
    position: absolute;
@@ -88,58 +93,61 @@ export default {
    /* transform: translate(-50%,-50%); */
  }
 .content{
-    margin-top: 30px;
+    margin-top: 1.8rem;
     text-align: left;
 }
 .content_top{
-    margin-left: 20px;
+    margin-left: 0.5rem;
 }
 .content_top span:nth-child(1){
     font-family: SourceHanSansSC;
     font-weight: 400;
-    font-size: 30px;
+    font-size:1rem;
     color: rgb(230, 215, 76);
     font-style: normal;
-    letter-spacing: 0px;
-    line-height: 30px;
+    letter-spacing: 0;
+    line-height: 2rem;
 }
 .content_top span:nth-child(2){
-   font-size: 20px;
-    margin-left: 40px;
+   font-size: 1.5rem;
+    margin-left: 2.4rem;
     background-color: rgba(234, 48, 48, 0.8);
-    line-height: 20px;
+    line-height: 2rem;
     color: #fff;
 }
 .content_top span:nth-child(3){
-    font-size: 20px;
-    margin-left: 40px;
+    font-size: 1.5rem;
+    margin-left: .8rem;
     background-color: rgba(234, 48, 48, 0.8);
-    line-height: 20px;
+    line-height: 1.5rem;
     color: #fff;
 }
 .content p{
-    margin-left: 20px;
-    margin-top: 20px;
-    font-size: 25px;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.7rem;
     opacity: 0.5;
-    margin-bottom: 50px; 
+    margin-bottom: 2.5rem; 
 }
 .line{
     border: 0.5px solid black;
     opacity: 0.5;
 }
 .content_bottom{
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
     font-family: SourceHanSansSC;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 1rem;
     color: rgb(16, 16, 16);
-    line-height: 24px;
+    line-height: 1.7rem;
+}
+.bottom{
+    margin-top: 2.5rem;
 }
 .bottom button{
-    position: absolute;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
 }
 </style>
 

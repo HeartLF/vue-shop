@@ -35,33 +35,15 @@
          <div class="bodyCont" v-if="bodyCont"></div>
          <div class="main">
              <ul>
-                 <router-link :to="{name:'Clother'}">
                  <li>
                      <div class="main_img">
-                         <img src="../assets/shop0.jpg" alt="">
+                         <img src="../assets/phone.jpg" alt="">
                      </div>
                      <div class="main_content">
-                         <h3>NIKE Air Force1 af1空军一号男鞋纯白板鞋</h3>
+                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
                          <p class="main_price">
-                             <span class="price">￥799</span>
-                             <span class="del_price">￥999</span>
-                         </p>
-                         <div class="main_free">
-                             <span class="free">免运费</span>
-                             <span class="num">584人已付款</span>
-                         </div>
-                     </div>
-                 </li>
-                 </router-link>
-                   <li>
-                     <div class="main_img">
-                         <img src="../assets/shop0.jpg" alt="">
-                     </div>
-                     <div class="main_content">
-                         <h3>NIKE Air Force1 af1空军一号男鞋纯白板鞋</h3>
-                         <p class="main_price">
-                             <span class="price">￥799</span>
-                             <span class="del_price">￥999</span>
+                             <span class="price">￥278</span>
+                             <span class="del_price">￥1278</span>
                          </p>
                          <div class="main_free">
                              <span class="free">免运费</span>
@@ -71,13 +53,13 @@
                  </li>
                    <li>
                      <div class="main_img">
-                         <img src="../assets/shop0.jpg" alt="">
+                         <img src="../assets/phone.jpg" alt="">
                      </div>
                      <div class="main_content">
-                          <h3>NIKE Air Force1 af1空军一号男鞋纯白板鞋</h3>
+                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
                          <p class="main_price">
-                             <span class="price">￥799</span>
-                             <span class="del_price">￥999</span>
+                             <span class="price">￥278</span>
+                             <span class="del_price">￥1278</span>
                          </p>
                          <div class="main_free">
                              <span class="free">免运费</span>
@@ -87,13 +69,13 @@
                  </li>
                    <li>
                      <div class="main_img">
-                         <img src="../assets/shop0.jpg" alt="">
+                         <img src="../assets/phone.jpg" alt="">
                      </div>
                      <div class="main_content">
-                         <h3>NIKE Air Force1 af1空军一号男鞋纯白板鞋</h3>
+                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
                          <p class="main_price">
-                             <span class="price">￥799</span>
-                             <span class="del_price">￥999</span>
+                             <span class="price">￥278</span>
+                             <span class="del_price">￥1278</span>
                          </p>
                          <div class="main_free">
                              <span class="free">免运费</span>
@@ -103,13 +85,29 @@
                  </li>
                    <li>
                      <div class="main_img">
-                         <img src="../assets/shop0.jpg" alt="">
+                         <img src="../assets/phone.jpg" alt="">
                      </div>
                      <div class="main_content">
-                         <h3>NIKE Air Force1 af1空军一号男鞋纯白板鞋</h3>
+                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
                          <p class="main_price">
-                             <span class="price">￥799</span>
-                             <span class="del_price">￥999</span>
+                             <span class="price">￥278</span>
+                             <span class="del_price">￥1278</span>
+                         </p>
+                         <div class="main_free">
+                             <span class="free">免运费</span>
+                             <span class="num">584人已付款</span>
+                         </div>
+                     </div>
+                 </li>
+                   <li>
+                     <div class="main_img">
+                         <img src="../assets/phone.jpg" alt="">
+                     </div>
+                     <div class="main_content">
+                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
+                         <p class="main_price">
+                             <span class="price">￥278</span>
+                             <span class="del_price">￥1278</span>
                          </p>
                          <div class="main_free">
                              <span class="free">免运费</span>

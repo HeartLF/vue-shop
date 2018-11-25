@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="top">
       <div class="bottom-bar" >
         <mt-tabbar v-model="selected">
           <mt-tab-item id="one">
@@ -46,7 +46,6 @@ a{
   width: 50px;
   height: 50px; 
 }
-
 .mint-tabbar{
   position: fixed; 
 }
@@ -62,6 +61,12 @@ a{
   left: 50%;
   bottom: 20px;
 } */
+.top{
+  overflow: hidden;
+}
+.bottom-bar{
+  position: relative;
+}
 </style>
 
 

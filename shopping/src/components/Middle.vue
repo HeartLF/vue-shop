@@ -18,35 +18,10 @@
           </mt-swipe>
        </div>
       <div class="middle">
-
-        <div class="middle_content" v-for="item in info" :key=item.id @click="goto(item.id,item.name)">
+        <div class="middle_content" v-for="item in img" :key=item.id @click="goto(item.id,item.name)">
             <img :src="item.img" >
             <p>{{item.name}}</p>
         </div>
-
-          <!-- <div class="middle_content" @click="acount">
-           
-          </div>
-          <div class="middle_content" @click="game">
-            <img src="../assets/出行.png" alt="">
-            <p>出行工具</p>
-          </div>
-          <div class="middle_content" @click="phone">
-            <img src="../assets/数码.png" alt="">
-            <p>3C数码</p>
-          </div>
-          <div class="middle_content">
-            <img src="../assets/宿舍用品.png" alt="">
-            <p>宿舍用品</p>
-          </div>
-           <div class="middle_content">
-            <img src="../assets/美妆.png" alt="">
-            <p>美妆洗护</p>
-          </div>
-           <div class="middle_content">
-            <img src="../assets/衣物.png" alt="">
-            <p>衣物鞋子</p>
-          </div> -->
       </div>
     </div>
 </template>
@@ -59,35 +34,20 @@ export default {
       result:["w","hw","hhw"],
       title:'',
       value:'',
-      info:[{
-        img:require('../assets/账号.png'),
-        name:'游戏账号',
-        id:1
-      },{
-        img:require('../assets/出行.png'),
-        name:'出行工具',
-        id:2
-      },{
-        img:require('../assets/数码.png'),
-        name:'3C数码',
-        id:3
-      },{
-        img:require('../assets/宿舍用品.png'),
-        name:'宿舍用品',
-        id:3
-      },{
-        img:require('../assets/美妆.png'),
-        name:'美妆护肤',
-        id:4
-      },{
-        img:require('../assets/衣物.png'),
-        name:'衣物鞋',
-        id:4
-      }]
+      img:[]
     }
-  },
+  }, created() {
+        this.$ajax.get('/api/classify')
+        .then(res=>{
+          this.img=res.data;
+          console.log(this.img[0]);
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+      },
   methods:{
-    game:function () {
+      game:function () {
         this.$router.push('/game');
       },
       acount:function(){

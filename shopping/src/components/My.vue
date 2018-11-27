@@ -29,7 +29,7 @@
                         <img src="../assets/红包.png" alt="">
                         <span>我的红包</span>
                     </li>
-                    <router-link :to="{name:'Address'}">
+                    <router-link :to="{name:'My_Address'}">
                     <li>
                         <img src="../assets/地址.png" alt="">
                         <span>地址管理</span>

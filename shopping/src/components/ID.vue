@@ -1,7 +1,7 @@
 <template>
     <div>
            <div>
-            <mt-header title="游戏详情" fixed>
+            <mt-header :title="title" fixed>
                 <router-link :to="{name:'acount'}" slot="left">
                     <mt-button icon="back"></mt-button>
                 </router-link>
@@ -40,10 +40,9 @@
                     </div>
                    
                 </li>
-                 </router-link>
-                  <router-link :to="{name:'ID_content',params:{id:456}}">
+                </router-link>
+                <router-link :to="{name:'ID_content',params:{id:456}}">
                 <li>
-                   
                     <div class="main_img">
                         <img src="../assets/58eb65cc7987b.jpg" alt="">
                     </div>
@@ -140,7 +139,12 @@
 </template>
 <script>
 export default {
-    name:'ID'
+    name:'ID',
+    data(){
+        return{
+            title:this.$store.state.name
+        }
+    }
 }
 </script>
 <style scoped>

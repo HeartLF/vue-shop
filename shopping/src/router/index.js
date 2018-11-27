@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import $ajax from 'axios';
 import HelloWorld from '@/components/HelloWorld';
 import Footer from '@/components/footer'
 import Middle from '@/components/Middle';
@@ -15,7 +16,9 @@ import Phone from '@/components/phone'
 import Clother from '@/components/clother';
 import Rent from '@/components/rent'
 import Address from '@/components/address'
-Vue.use(Router)
+import My_Address from '@/components/My_Address'
+Vue.use(Router);
+Vue.prototype.$ajax = $ajax;
 Vue.component('FooterVue', Footer);
 export default new Router({
     mode: 'history',
@@ -79,6 +82,11 @@ export default new Router({
             path: '/addAddress',
             name: 'Address',
             component: Address
+        },
+        {
+            path: '/My/My_Address',
+            name: 'My_Address',
+            component: My_Address
         }
     ]
 })

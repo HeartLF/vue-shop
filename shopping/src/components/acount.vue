@@ -22,44 +22,15 @@
         <div class="content">
             <div class="content1">
                 <img src="../assets/icon_hot.png" alt="" srcset="" class="hot">
-                <h2>热门游戏</h2>
-                <span class="all">
-                    <router-link :to="{name:'Product'}">全部游戏</router-link>
-                </span>
+                <h2>热门分类</h2>           
             </div>
             <div class="content_main">
                 <ul>
-                    <li>
-                        <router-link :to="{name:'Product'}">
-                            <img src="../assets/58eb65cc7987b.jpg" alt="" srcset="">
+                    <li v-for="item in info" :key="item.id">
+                        <router-link :to="{name:'Phone',params:{id:item.id}}">
+                            <img :src="item.img" alt="" srcset="">
                         </router-link>
-                        <p>绝地求生</p>
-                    </li>
-                      <li>
-                        <router-link :to="{name:'ID',params:{id:123}}">
-                            <img src="../assets/58eb65cc7987b.jpg" alt="" srcset="">
-                        </router-link>
-                        <p>绝地求生</p>
-                    </li>
-                       <li>
-                        <router-link :to="{name:'ID'}">
-                            <img src="../assets/58eb65cc7987b.jpg" alt="" srcset="">
-                        </router-link>
-                        <p>绝地求生</p>
-                    </li>
-                       <li>
-                        <router-link :to="{name:'ID'}">
-                            <img src="../assets/58eb65cc7987b.jpg" alt="" srcset="">
-                        </router-link>
-                        <p>绝地求生</p>
-                    </li>
-                       <li>
-                        <router-link :to="{name:'ID'}">
-                            
-                            <img src="../assets/58eb65cc7987b.jpg" alt="" srcset="">
-                            <p>绝地求生</p>
-                        </router-link>
-                        
+                        <p>{{item.name}}</p>
                     </li>
                 </ul>
             </div>
@@ -71,9 +42,26 @@ export default {
     name:'acount',
     data(){
         return{
-            title:this.$store.state.name
+            title:this.$store.state.name,
+            id:'',
+            info:[]
         }
-    }
+    },
+    created() {
+       
+       
+    },
+    mounted() {
+         this.id=this.$route.params.id;
+          this.$ajax.get('/api/all_classify/'+this.id)
+        .then(res=>{
+            this.info=res.data;
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    },
+    
 }
 </script>
 <style scoped>

@@ -17,6 +17,8 @@ import Clother from '@/components/clother';
 import Rent from '@/components/rent'
 import Address from '@/components/address'
 import My_Address from '@/components/My_Address'
+import Chat from '@/components/chat'
+import Login from '@/components/login'
 Vue.use(Router);
 Vue.prototype.$ajax = $ajax;
 Vue.component('FooterVue', Footer);
@@ -47,7 +49,7 @@ export default new Router({
             name: 'Game',
             component: Game
         }, {
-            path: '/clother',
+            path: '/clother/:id',
             name: 'Clother',
             component: Clother
         },
@@ -69,7 +71,7 @@ export default new Router({
             component: ID_content
         },
         {
-            path: '/phone',
+            path: '/phone/:id',
             name: 'Phone',
             component: Phone
         },
@@ -87,6 +89,15 @@ export default new Router({
             path: '/My/My_Address',
             name: 'My_Address',
             component: My_Address
+        },
+        {
+            path: '/chat',
+            name: 'Chat',
+            component: Chat
+        }, {
+            path: '/login',
+            name: 'Login',
+            component: Login
         }
     ]
 })

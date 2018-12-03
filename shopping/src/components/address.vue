@@ -37,8 +37,7 @@ export default {
             message: '操作成功',
             iconClass: 'icon icon-success',
             });
-            setTimeout(this.Handle,2000)
-          
+            setTimeout(this.Handle,2000)          
         },
       
     }

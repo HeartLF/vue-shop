@@ -91,9 +91,9 @@ export default {
     },
   methods:{
       back:function(){
-          this.$router.push({
-              name:'Game'
-          })
+        //   this.$router.push({
+        //       name:'phone'
+        //   })
       },
       back_home:function(){
           this.$router.push({

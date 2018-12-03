@@ -2,7 +2,7 @@
     <div>
         <div class="fix">
             <div class="back" @click="back">
-                <img src="../assets/返回.png" slot="icon">
+                <img src="../assets/返回.png" slot="icon" @click="back">
             </div>
             <div class="search">
                     <mt-search
@@ -35,86 +35,26 @@
          <div class="bodyCont" v-if="bodyCont"></div>
          <div class="main">
              <ul>
-                 <li>
+              
+                 <li v-for="item in info" :key=item.id>
+                        <router-link :to="{name:'Clother',params:{id:item.id}}">
                      <div class="main_img">
-                         <img src="../assets/phone.jpg" alt="">
+                         <img :src="item.img" alt="">
                      </div>
                      <div class="main_content">
-                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
+                         <h3>{{item.instr}}</h3>
                          <p class="main_price">
-                             <span class="price">￥278</span>
-                             <span class="del_price">￥1278</span>
+                             <span class="price">￥{{item.price}}</span>
+                             <span class="del_price">￥{{item.original_price}}</span>
                          </p>
                          <div class="main_free">
                              <span class="free">免运费</span>
-                             <span class="num">584人已付款</span>
+                             <span class="num">{{item.buy_count}}人已付款</span>
                          </div>
                      </div>
+                      </router-link>
                  </li>
-                   <li>
-                     <div class="main_img">
-                         <img src="../assets/phone.jpg" alt="">
-                     </div>
-                     <div class="main_content">
-                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
-                         <p class="main_price">
-                             <span class="price">￥278</span>
-                             <span class="del_price">￥1278</span>
-                         </p>
-                         <div class="main_free">
-                             <span class="free">免运费</span>
-                             <span class="num">584人已付款</span>
-                         </div>
-                     </div>
-                 </li>
-                   <li>
-                     <div class="main_img">
-                         <img src="../assets/phone.jpg" alt="">
-                     </div>
-                     <div class="main_content">
-                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
-                         <p class="main_price">
-                             <span class="price">￥278</span>
-                             <span class="del_price">￥1278</span>
-                         </p>
-                         <div class="main_free">
-                             <span class="free">免运费</span>
-                             <span class="num">584人已付款</span>
-                         </div>
-                     </div>
-                 </li>
-                   <li>
-                     <div class="main_img">
-                         <img src="../assets/phone.jpg" alt="">
-                     </div>
-                     <div class="main_content">
-                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
-                         <p class="main_price">
-                             <span class="price">￥278</span>
-                             <span class="del_price">￥1278</span>
-                         </p>
-                         <div class="main_free">
-                             <span class="free">免运费</span>
-                             <span class="num">584人已付款</span>
-                         </div>
-                     </div>
-                 </li>
-                   <li>
-                     <div class="main_img">
-                         <img src="../assets/phone.jpg" alt="">
-                     </div>
-                     <div class="main_content">
-                         <h3>双十一限量抢 256G超薄6.2寸全网通4G手机</h3>
-                         <p class="main_price">
-                             <span class="price">￥278</span>
-                             <span class="del_price">￥1278</span>
-                         </p>
-                         <div class="main_free">
-                             <span class="free">免运费</span>
-                             <span class="num">584人已付款</span>
-                         </div>
-                     </div>
-                 </li>
+                
              </ul>
          </div>
     </div>
@@ -124,6 +64,7 @@ export default {
     name:'Phone',
     data(){
         return {
+            id:'',
             value:'',
             rotate:false,
             choose:false,
@@ -141,12 +82,26 @@ export default {
                 {timer: '19',
                 info:'价格从低到高'
                 }
-            ]
+            ],
+            info:[]
         }
+    },
+    created() {
+     
+    },
+    mounted() {
+        this.id=this.$route.params.id;
+        this.$ajax.get('/api/little_classify/'+this.id)
+        .then(res=>{
+            this.info=res.data;
+        })
+        .catch(err=>{
+            console.log(err);
+        })
     },
     methods:{
         back(){
-            this.$router.push('./Middle')
+          this.$router.back(-1);
         },
         down(){
             this.rotate=!this.rotate

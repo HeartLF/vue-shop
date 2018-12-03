@@ -55,16 +55,7 @@ export default {
             info:[]
         }
       },
-      created() {
-        this.$ajax.get('/classify')
-        .then(res=>{
-          this.info=res;
-          console.log(this.info,res);
-        })
-        .catch(err=>{
-          console.log(err);
-        })
-      },
+     
       methods:{
         game:function(){
           this.$router.push({name:'Game'})

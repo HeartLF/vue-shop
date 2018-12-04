@@ -3,9 +3,10 @@
        
             <div class="top">
                 <div class="center">
-                <img src="../assets/avator.png" alt="">
-                <p>用沉默在咆哮</p>
-                 </div>
+                    <img :src="img" alt="">
+                    <p @click="login">{{username}}</p>
+                    <p v-show="show">注册</p>
+                </div>
             </div>
             <div class="bottom">
                 <ul>
@@ -54,12 +55,30 @@ export default {
     name:'My',
     data(){
         return{
-
+            username:'',
+            img:'',
+            show:true
+        }
+    },
+    created() {
+        let info=localStorage.getItem('info');        
+        info=JSON.parse(info);
+        console.log(info)
+        if(info.name==''){
+            this.username="请登录";
+            this.img=require('../assets/avator.png')
+        }else{
+            this.username=info.name;
+            this.img=info.img;
+            this.show=false;
         }
     },
     methods:{
         goto(){
             this.$router.push('/rent')
+        },
+        login(){
+            this.$router.push('/login')
         }
     }
 }

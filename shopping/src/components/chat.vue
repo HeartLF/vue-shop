@@ -1,5 +1,14 @@
 <template>
     <div>
+        <div>
+            <mt-header title="客服" fixed>
+                <router-link :to="{name:'My'}" slot="left">
+                    <mt-button icon="back"></mt-button>
+                </router-link>
+                <mt-button icon="more" slot="right"></mt-button>
+            </mt-header>
+        </div>
+      <div class="main">
         <div class="chat-sender">
   <div><img src="../assets/avator.png"></div>
   <div>阿奔 Ben</div>
@@ -30,46 +39,67 @@
 <div class="chat-notice">
   <span>2017年12月10日 23:13</span>
 </div>
-<!-- Left -->
-<div class="chat-sender">
-  <div><img src="../assets/avator.png"/></div>
-  <div>佩里 Perry</div>
-  <div>
-    <div class="chat-left_triangle"></div>
-    <span> Ionic遵循视图控制模式，通俗的理解和 Cocoa 触摸框架相似。在视图控制模式中，我们将界面的不同部分分为子视图或包含其他视图的子视图控制器。</span>
-  </div>
-</div>
-<!-- Left -->
-<div class="chat-sender">
-  <div><img src="../assets/avator.png"></div>
-  <div>麦克</div>
-  <div>
-    <div class="chat-left_triangle"></div>
-    <span> 你可以用ionRefresher指令实现拉动刷新，并可以用ionInfiniteScroll指令实现无限滚动。</span>
-  </div>
-</div>
-<!-- Right -->
-<div class="chat-receiver">
-  <div><img src="../assets/avator.png"></div>
-  <div>好人·马克思</div>
-  <div>
-    <div class="chat-right_triangle"></div>
-    <span> 最后但并非最不重要的是</span>
-  </div>
-</div>
-<!-- Notice/Center -->
 <div class="chat-notice">
   <span>你被群主移除群聊</span>
 </div>
+</div>
 <div class="chat_bottom">
-    <input type="text">
-    <button>发送</button>
+    <input type="text" v-model="value" class="txt">
+    <button class="send">发送</button>
 </div>
     </div>
 </template>
 <script>
 export default {
-    name:'Chat'
+    name:'Chat',
+    data(){
+      return {
+        value:'',
+        msg:'',
+        img:require('../assets/avator.png')
+      }
+    },
+    created() {
+      // this.websockets()
+    },
+    mounted() {
+      this.websockets()
+    },
+    methods:{
+      websockets(){
+        let ws=new WebSocket('ws://localhost:3000');
+        ws.onopen=()=>{
+          ws.send(this.value);
+          console.log('数据发送中');
+        }
+        ws.onmessage=evt=>{
+          //接受数据
+          console.log(evt);
+          let send=document.querySelector('send');
+          console.log(send);
+          let html
+          send.addEventListener('click',function(){           
+              html+=`<div class="chat-receiver">
+  <div><img src="../assets/avator.png"></div>
+  <div>好人·马克思</div>
+  <div>
+    <div class="chat-right_triangle"></div>
+    <span> 但是如果你正在再发新的APP跨平台项目，我建议你考虑一下Ionic2/Ionic3。 ionic2/Ionic3的架构使得“单一职责原则”得到了体现，组件、页面之间相互独立，有利于内聚和解耦。</span>
+  </div>
+</div>`
+document.querySelector('.main').innerHTML+=html;
+          })
+          
+        };
+        ws.onclose=function(){
+            //关闭连接
+            console.log('连接关闭');
+        }
+        this.$router.afterEach(()=>{
+          ws.close()
+        })
+      }
+    }
 }
 </script>
 <style scoped>
@@ -78,9 +108,13 @@ export default {
       font-family: -apple-system;
       font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
     }
-    .chat-sender{
+    .main{
+      height: 100%;
+    }
+    .chat-sender{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
       clear:both;
       font-size: 80%;
+      margin-top: 45px;
     }
     .chat-sender div:nth-of-type(1){
       float: left;
@@ -157,7 +191,8 @@ export default {
       color: white;
       text-align: center;
       margin-top: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 100px;
+
     }
     .chat-notice span{
       background-color: #cecece;
@@ -166,9 +201,22 @@ export default {
       padding: 5px 10px;
     }
     .chat_bottom{
-        position: absolute;
+        position: fixed;
         bottom: 0px;
         width: 100%;
+    }
+    .txt{
+      height: 50px;
+      width: 80%;
+      line-height: 50px;
+    }
+    .chat_bottom button{
+      background: #26a2ff;
+      color: #ffffff;
+      height: 50px;
+      width: 15%;
+      border: none;
+      /* float: right; */
     }
 </style>
 

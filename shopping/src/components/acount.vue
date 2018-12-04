@@ -42,7 +42,7 @@ export default {
     name:'acount',
     data(){
         return{
-            title:this.$store.state.name,
+            title:this.$store.state.Name,
             id:'',
             info:[]
         }

@@ -16,7 +16,7 @@ var sqlMap = {
     },
     user: {
         select_person: function(phoneNum, passwordNum) {
-            return 'select * from user where phone=' + phoneNum + 'and password=' + passwordNum
+            return "select * from user where phone='" + phoneNum + "' and password='" + passwordNum + "'"
         }
     }
 

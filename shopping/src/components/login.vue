@@ -37,11 +37,15 @@ export default {
             password:''
         }
     },
+    created() {
+        
+    },
     methods:{
         login(){
             this.$ajax.post('/api/login',{phone:this.phone,password:this.password})
             .then(res=>{
-                console.log(res);
+                 localStorage.setItem('info',JSON.stringify(res.data[0]));
+                 this.$router.push('/My')
             })
             .catch(err=>{
                 console.log(err)

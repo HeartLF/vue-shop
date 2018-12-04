@@ -17,6 +17,7 @@ var jsonWrite = function(res, ret) {
         res.json(ret);
     }
 }
+
 router.get('/api/classify', (req, res) => {
     let sql = $sql.classify.select_name;
     connection.query(sql, (err, result) => {
@@ -47,11 +48,14 @@ router.get('/api/little_classify/:id', (req, res) => {
     })
 })
 router.post('/api/login', (req, res) => {
+    console.log(req.body.phone, req.body.password)
     let sql = $sql.user.select_person(req.body.phone, req.body.password);
     connection.query(sql, (err, result) => {
         if (err) throw err;
-        if (result) {
+        console.log(result)
+        if (result.length != 0) {
             jsonWrite(res, result);
+            req.session.login = 1;
         }
     })
 })

@@ -21,6 +21,7 @@ import Chat from '@/components/chat'
 import Login from '@/components/login'
 Vue.use(Router);
 Vue.prototype.$ajax = $ajax;
+$ajax.defaults.withCredentials = true;
 Vue.component('FooterVue', Footer);
 export default new Router({
     mode: 'history',
